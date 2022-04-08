@@ -35,8 +35,7 @@ app.use(passport.session());
 
 
 //connect to database local
-mongoose.connect("mongodb://localhost:27017/userDB", {useNewUrlParser: true});
-
+mongoose.connect("mongodb+srv://admin-fernand:1SOVwkOhMoZihMZ8@cluster0.jfnfw.mongodb.net/secretDB");
 
 
 //schema
@@ -184,6 +183,6 @@ app.post("/login", function(req, res){
 });
 
 
-app.listen(3000, function() {
-  console.log("Server started on port 3000");
+app.listen(process.env.PORT, function() {
+  console.log("Server started");
 });
