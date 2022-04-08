@@ -35,9 +35,8 @@ app.use(passport.session());
 
 
 //connect to database local
-mongoose.connect("mongodb://localhost:27017/userDB", {useNewUrlParser: true});
-
-
+//mongoDB Atlas
+mongoose.connect("mongodb+srv://admin-fernand:1SOVwkOhMoZihMZ8@cluster0.jfnfw.mongodb.net/secretDB");
 
 //schema
 const userSchema = new mongoose.Schema ({
