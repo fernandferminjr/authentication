@@ -35,7 +35,7 @@ app.use(passport.session());
 
 
 //connect to database local
-mongoose.connect("mongodb://localhost:27017/userDB", {useNewUrlParser: true});
+mongoose.connect("mongodb+srv://admin-fernand:1SOVwkOhMoZihMZ8@cluster0.jfnfw.mongodb.net/secretDB");
 
 
 
@@ -70,7 +70,7 @@ passport.deserializeUser(function(id, done){
 passport.use(new GoogleStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/auth/google/secrets",
+    callbackURL: "http://shielded-waters-94825.herokuapp.com/auth/google/secrets",
     userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
   },
   function(accessToken, refreshToken, profile, cb) {
@@ -184,6 +184,6 @@ app.post("/login", function(req, res){
 });
 
 
-app.listen(3000, function() {
+app.listen(process.env.port, function() {
   console.log("Server started on port 3000");
 });
